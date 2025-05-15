@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>MOTO24 - แจ้งซ่อมอุปกรณ์</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 1rem; }
+    input, textarea, button { width: 100%; margin: 10px 0; padding: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>แจ้งซ่อมอุปกรณ์</h1>
+  <input id="name" placeholder="👤 ชื่อผู้แจ้ง">
+  <input id="branch" placeholder="🏢 บริษัท / สาขา">
+  <input id="device" placeholder="💻 อุปกรณ์ที่เสีย">
+  <textarea id="detail" rows="5" placeholder="📝 รายละเอียดปัญหา"></textarea>
+  <input id="contact" placeholder="📞 ช่องทางติดต่อกลับ">
+  <button onclick="submitForm()">✅ ส่งแจ้งซ่อม</button>
+
+  <script>
+    async function submitForm() {
+      const name = document.getElementById('name').value;
+      const branch = document.getElementById('branch').value;
+      const device = document.getElementById('device').value;
+      const detail = document.getElementById('detail').value;
+      const contact = document.getElementById('contact').value;
+
+      if (!name || !branch || !device || !detail) {
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        return;
+      }
+
+      const content = `🔧 แจ้งซ่อมอุปกรณ์ 🔧\n\n👤 ผู้แจ้ง: ${name}\n🏢 สาขา: ${branch}\n💻 อุปกรณ์: ${device}\n📝 รายละเอียด: ${detail}\n📞 ติดต่อกลับ: ${contact}`;
+      const webhook = "https://discordapp.com/api/webhooks/1372026730109468672/1Zsl1q-dST8NTXEKs2CuUK-fEgEKTb_wB6wbRbRqG5tfYLsUKiEpAv6WzRuFaMlEKO5Q";
+
+      try {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ content })
+        });
+        alert("ส่งข้อมูลเรียบร้อยแล้ว");
+        document.querySelectorAll('input, textarea').forEach(e => e.value = "");
+      } catch (e) {
+        alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+      }
+    }
+  </script>
+</body>
+</html>
