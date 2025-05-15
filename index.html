@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แจ้งซ่อมอุปกรณ์</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 1rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.6rem;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            margin-top: 1.5rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>แจ้งซ่อมอุปกรณ์</header>
+
+    <div class="container">
+        <h2>กรอกข้อมูล</h2>
+        <form action="#" method="post">
+            <label for="name">👤 ชื่อผู้แจ้ง</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="company">🏢 บริษัท / สาขา</label>
+            <input type="text" id="company" name="company" required>
+
+            <label for="device">🖥️ อุปกรณ์ที่เสีย</label>
+            <input type="text" id="device" name="device" required>
+
+            <label for="details">📝 รายละเอียดปัญหา</label>
+            <textarea id="details" name="details" required></textarea>
+
+            <label for="contact">📞 ช่องทางติดต่อกลับ</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <button type="submit" class="submit-btn">✅ ส่งแจ้งซ่อม</button>
+        </form>
+    </div>
+
+</body>
+</html>
